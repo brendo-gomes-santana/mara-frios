@@ -50,7 +50,7 @@ export default function Model({ bodyData, setFechar, fechar, atualizarPagina }) 
             return 'Sem informação'
         }
 
-        return infor
+        return infor.toFixed(3)
     }
 
     async function handleFaturamentoDodia() {
@@ -78,7 +78,7 @@ export default function Model({ bodyData, setFechar, fechar, atualizarPagina }) 
             <div>
                 <h1>{bodyData?.DESCRICAO5}</h1>
                 <p>
-                    <strong>Quantidade atual:</strong> {bodyData?.QUANTIDADE}
+                    <strong>Quantidade atual:</strong> {bodyData?.QUANTIDADE.toFixed(3)}
                 </p>
                 <p>
                     <strong>Localização: </strong>{bodyData?.LOCALIZACAO === null ? "Não possui cadastro" : bodyData?.LOCALIZACAO}

@@ -21,16 +21,23 @@ class DetalhesService {
             ])
 
 
-            const resultado = entrada - vendas_efetivadas - vendas_temporaria - fatura01 - fatura02 as number
+            const resultado = (
+                Number(entrada.toFixed(2)) 
+                - (fatura01 ? Number(fatura01.toFixed(2)) : fatura01) 
+                - (fatura02 ? Number(fatura02.toFixed(2)) : fatura02)
+                - (vendas_efetivadas ? Number(vendas_efetivadas.toFixed(2)) : vendas_efetivadas)
+                - (vendas_temporaria ? Number(vendas_temporaria.toFixed(2)) : vendas_temporaria)
+            ) as number;
+            
 
             return {
                 resultado: resultado,
 
-                total_entrada: entrada,
-                total_fatura1: fatura01,
-                total_fatura2: fatura02,
-                total_vendasEfetivadas: vendas_efetivadas,
-                total_vendasTemporaria: vendas_temporaria,
+                total_entrada: Number(entrada.toFixed(2)),
+                total_fatura1: fatura01 ? Number(fatura01.toFixed(2)) : fatura01,
+                total_fatura2: fatura02 ? Number(fatura02.toFixed(2)) : fatura02,
+                total_vendasEfetivadas: vendas_efetivadas ? Number(vendas_efetivadas.toFixed(2)) : vendas_efetivadas,
+                total_vendasTemporaria: vendas_temporaria ? Number(vendas_temporaria.toFixed(2)) : vendas_temporaria,
             }
 
         } catch (err) {

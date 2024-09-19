@@ -93,7 +93,7 @@ export default function Produtos() {
                                         {item.LOCALIZACAO}
                                     </td>
                                     <td>
-                                        {item.QUANTIDADE}
+                                        {item.QUANTIDADE.toFixed(3)}
                                         <span>{item.NOMEUNIDA}</span>
                                     </td>
                                     {card === item.CODIGO && (
