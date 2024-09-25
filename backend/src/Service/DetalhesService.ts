@@ -33,7 +33,7 @@ class DetalhesService {
             return {
                 resultado: resultado,
 
-                total_entrada: Number(entrada.toFixed(2)),
+                total_entrada: entrada?  Number(entrada.toFixed(2)) : entrada,
                 total_fatura1: fatura01 ? Number(fatura01.toFixed(2)) : fatura01,
                 total_fatura2: fatura02 ? Number(fatura02.toFixed(2)) : fatura02,
                 total_vendasEfetivadas: vendas_efetivadas ? Number(vendas_efetivadas.toFixed(2)) : vendas_efetivadas,
@@ -67,7 +67,7 @@ class DetalhesService {
                     db.detach()
 
                     resolve(
-                         result[0].SUM
+                        result[0].SUM ? result[0].SUM : 0
                     );
                 })
 
@@ -96,7 +96,9 @@ class DetalhesService {
 
                     db.detach()
 
-                    resolve(result[0].SUM);
+                    resolve(
+                        result[0].SUM ? result[0].SUM : 0
+                    );
                 })
 
             })
@@ -124,7 +126,9 @@ class DetalhesService {
 
                     db.detach()
 
-                    resolve(result[0].SUM);
+                    resolve(
+                        result[0].SUM ? result[0].SUM : 0
+                    );
                 })
 
             })
@@ -152,7 +156,9 @@ class DetalhesService {
 
                     db.detach()
 
-                    resolve(result[0].SUM);
+                    resolve(
+                        result[0].SUM ? result[0].SUM : 0
+                    );
                 })
 
             })
@@ -186,7 +192,9 @@ class DetalhesService {
 
                     db.detach()
 
-                    resolve(result[0].ADD);
+                    resolve(
+                        result[0].ADD ? result[0].ADD : 0
+                    );
                 })
 
             })
