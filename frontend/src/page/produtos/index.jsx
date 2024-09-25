@@ -80,7 +80,7 @@ export default function Produtos() {
                         </tr>
                     </thead>
                     <tbody>
-                        {data.map((item) => {
+                        {data?.map((item) => {
                             return (
                                 <tr key={item.CODIGO}>
                                     <td>{item.CODIGO}</td>

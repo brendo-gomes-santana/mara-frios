@@ -18,8 +18,10 @@ class ProductsService {
                                 FROM PRODUTOS A, ESTOQUE B, UNIDADES C
                                 WHERE A.DESCRICAO5 IS NOT NULL 
                                 AND A.CODIGO = B.CODMERC
-                                AND  C.CODIGOUN = A.CODIGOUN 
-                                AND A.DESCRICAO5 LIKE ?`;
+                                AND  C.CODIGOUN = A.CODIGOUN
+                                AND A.DESCRICAO5 LIKE ?
+                                ORDER  BY A.DESCRICAO5 ASC
+                                `;
                                 
                 const params = [`%${nome_produto?.toUpperCase()}%`];
 
@@ -31,7 +33,7 @@ class ProductsService {
 
                     // Important: close the connection
                     db.detach();
-
+                   
                     // Cast result to RetornoProdutoLista[]
                     resolve(result);
                 });
